@@ -223,7 +223,7 @@ unsigned int NeoPixel::mem_phys_to_virt(uint32_t phys){
 
     for (i = 0; i < NUM_PAGES; i++) {
         if (page_map[i].physaddr == pg_addr) {
-            return (uint32_t)virtbase + i * PAGE_SIZE + pg_offset;
+            return atoi(virtbase) + i * PAGE_SIZE + pg_offset;
         }
     }
     fatal("Failed to reverse map phys addr %08x\n", phys);
