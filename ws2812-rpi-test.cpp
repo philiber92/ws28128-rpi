@@ -24,22 +24,28 @@
 */
 
 #include "ws2812-rpi.h"
+#include <<unistd.h>
 
 int main(int argc, char **argv){
     Color_t colors[] = {
             {255, 0, 0}, {0, 255, 0},
             {0, 0, 255}, {255, 255, 0},
-            {255, 0, 255}, {0, 255, 255},
-            {255, 255, 255}, {0, 0, 0}
+            {0, 255, 255}, {255, 0, 255},
+            {88, 88, 8}, {105, 105, 105},
+            {138, 138, 138}, {139, 129, 76},
+            {139, 10, 80}, {139, 58, 58},
+            {255, 160, 122}, {34, 139, 34},
+            {255, 64, 64}, {255, 255, 255}
     };
-    NeoPixel *n=new NeoPixel(sizeof(colors));
+    NeoPixel *n=new NeoPixel(60);
 
     while(true) {
         for(unsigned i = 0; i < sizeof(colors); i++) {
-            n->setPixelColor(i, colors[i]);
+            n->setPixelColor(59, colors[i]);
+            n->setBrightness(0.05f);
+            n->show();
+            sleep(12);
         }
-        n->setBrightness(0.05f);
-        n->show();
     }
     delete n;
 
