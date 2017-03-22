@@ -26,17 +26,17 @@
 #include "ws2812-rpi.h"
 
 int main(int argc, char **argv){
-    int number_of_led = 6;
-    Color_t colors[number_of_led] = {
-            {255, 0, 0}, {255, 0, 0},
-            {255, 0, 0}, {255, 0, 0},
-            {255, 0, 0}, {255, 0, 0}
+    Color_t colors[] = {
+            {255, 0, 0}, {0, 255, 0},
+            {0, 0, 255}, {255, 255, 0},
+            {255, 0, 255}, {0, 255, 255},
+            {255, 255, 255}, {0, 0, 0}
     };
-    NeoPixel *n=new NeoPixel(number_of_led);
+    NeoPixel *n=new NeoPixel(sizeof(colors));
 
     while(true) {
-        for(unsigned i = 1; i <= number_of_led; i++) {
-            n->setPixelColor(i, colors[i-1]);
+        for(unsigned i = 0; i < sizeof(colors); i++) {
+            n->setPixelColor(i, colors[i]);
         }
         n->setBrightness(0.05f);
         n->show();
