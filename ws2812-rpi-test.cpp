@@ -28,9 +28,9 @@
 int main(int argc, char **argv){
     int number_of_led = 6;
     Color_t colors[number_of_led] = {
-            Color_t::Color_t(255, 0, 0), Color_t::Color_t(255, 0, 0),
-            Color_t::Color_t(255, 0, 0), Color_t::Color_t(255, 0, 0),
-            Color_t::Color_t(255, 0, 0), Color_t::Color_t(255, 0, 0),
+            {255, 0, 0}, {255, 0, 0},
+            {255, 0, 0}, {255, 0, 0},
+            {255, 0, 0}, {255, 0, 0}
     };
     NeoPixel *n=new NeoPixel(number_of_led);
 
