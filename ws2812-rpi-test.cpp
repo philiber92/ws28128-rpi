@@ -27,10 +27,8 @@
 
 int main(int argc, char **argv){
     Color_t colors[] = {
-            {255, 0, 0}, {0, 255, 0},
-            {0, 0, 255}, {255, 255, 0},
-            {255, 0, 255}, {0, 255, 255},
-            {255, 255, 255}, {0, 0, 0}
+            {255, 0, 0}, {0, 0, 0},
+            {255, 0, 0}, {0, 0, 0}
     };
     NeoPixel *n=new NeoPixel(sizeof(colors));
 
@@ -38,7 +36,7 @@ int main(int argc, char **argv){
         for(unsigned i = 0; i < sizeof(colors); i++) {
             n->setPixelColor(i, colors[i]);
         }
-        n->setBrightness(0.05f);
+        n->setBrightness(0.03f);
         n->show();
     }
     delete n;
